@@ -14,7 +14,7 @@ let w = 10;
 let cols, rows;
 
 function setup() {
-    createCanvas(400, 400);
+    createCanvas(700, 700);
     cols = width / w;
     rows = height / w;
     grid = make2DArray(cols, rows);
@@ -30,14 +30,25 @@ function setup() {
 }
 
 function mouseDragged() {
-    let col = floor(mouseX / w);
-    let row = floor(mouseY / w);
-    //check if cursor outside canvas
-    if (col > 0 && col < cols - 2 &&
-        row > 0 && row < rows - 2) {
-        console.log(col + ' ' + row);
-        grid[col][row] = 1;
+    let mouseCol = floor(mouseX / w);
+    let mouseRow = floor(mouseY / w);
+
+    let matrix = 3;
+    let extent = floor(matrix / 2);
+    for (let i = -extent; i <= extent; i++) {
+        for (let j = -extent; j <= extent; j++) {
+            let col = mouseCol + i;
+            let row = mouseRow + j;
+            if (col > 3*extent && col < cols - 5*extent &&
+                row > 3*extent && row < rows - 5*extent) {
+                console.log(col + ' ' + row);
+                grid[col][row] = 1;
+            }
+        }
     }
+
+    //check if cursor outside canvas
+
 }
 
 function draw() {
