@@ -37,12 +37,14 @@ function mouseDragged() {
     let extent = floor(matrix / 2);
     for (let i = -extent; i <= extent; i++) {
         for (let j = -extent; j <= extent; j++) {
-            let col = mouseCol + i;
-            let row = mouseRow + j;
-            if (col > 3*extent && col < cols - 5*extent &&
-                row > 3*extent && row < rows - 5*extent) {
-                console.log(col + ' ' + row);
-                grid[col][row] = 1;
+            if (random(1) < 0.66) {
+                let col = mouseCol + i;
+                let row = mouseRow + j;
+                if (col > 3 * extent && col < cols - 5 * extent &&
+                    row > 3 * extent && row < rows - 5 * extent) {
+                    //console.log(col + ' ' + row);
+                    grid[col][row] = 1;
+                }
             }
         }
     }
