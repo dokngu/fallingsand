@@ -51,7 +51,7 @@ function mouseDragged() {
             }
         }
     }
-    hueValue += 50; console.log(hueValue);
+    hueValue += 5; console.log(hueValue);
     if(hueValue > 360) {hueValue = 2;}
 
 
